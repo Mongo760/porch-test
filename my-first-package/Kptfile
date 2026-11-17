@@ -21,7 +21,7 @@ status:
       - image: ghcr.io/kptdev/krm-functions-catalog/set-namespace:latest
         exitCode: 0
         results:
-          - message: namespace [default] updated to "production", 1 value(s) changed
+          - message: all matching namespaces are already "production". no value changed
             severity: info
           - message: all `depends-on` annotations are up-to-date. no `namespace` changed
             severity: info
