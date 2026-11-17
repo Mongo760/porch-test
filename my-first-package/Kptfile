@@ -1,0 +1,27 @@
+apiVersion: kpt.dev/v1
+kind: Kptfile
+metadata:
+  name: my-first-package
+  annotations:
+    config.kubernetes.io/local-config: "true"
+info:
+  description: My first Porch package
+pipeline:
+  mutators:
+    - image: set-namespace:latest
+      configMap:
+        namespace: production
+status:
+  conditions:
+    - type: Rendered
+      status: "True"
+      reason: RenderSuccess
+  renderStatus:
+    mutationSteps:
+      - image: ghcr.io/kptdev/krm-functions-catalog/set-namespace:latest
+        exitCode: 0
+        results:
+          - message: all matching namespaces are already "production". no value changed
+            severity: info
+          - message: all `depends-on` annotations are up-to-date. no `namespace` changed
+            severity: info
