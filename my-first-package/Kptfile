@@ -5,7 +5,7 @@ metadata:
   annotations:
     config.kubernetes.io/local-config: "true"
 info:
-  description: My first Porch package
+  description: My app version 2 with improvements
 pipeline:
   mutators:
     - image: set-namespace:latest
